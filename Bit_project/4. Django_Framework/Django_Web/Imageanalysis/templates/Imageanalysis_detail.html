@@ -1,0 +1,107 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html lang=ko>
+<head>
+    <title>Image_Analysis</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href={% static "assets/css/sample.css" %}/>
+</head>
+<body class="is-preload">
+{% csrf_token %}
+<div id="page-wrapper">
+    <header id="header">
+        <h1><a href="/content">BIT_Project</a> Joo&Lim_Image_Analysis</h1>
+        <nav id="nav">
+            <ul>
+                <li style="white-space: nowrap;"><a href="/content">Home</a></li>
+                <li class="opener" style="user-select: none; cursor: pointer; white-space: nowrap;">
+                    <a href="#" class="icon solid fa-angle-down">Layouts ∨</a>
+                    <ul class="" style="user-select: none; display: none; position: absolute;">
+                        <li style="white-space: nowrap;"><a href="/board_list" style="display: block;">Board</a></li>
+                        <li style="white-space: nowrap;"><a href="/Realtimegraph" style="display: block;">Real-time
+                            graph</a></li>
+                        <li style="white-space: nowrap;"><a href="/Realtimemap" style="display: block;">Real-time
+                            Map</a>
+                        <li style="white-space: nowrap;"><a href="/imageanalysis" style="display: block;">Image
+                            Analysis</a>
+                        <li style="white-space: nowrap;"><a href="/contact" style="display: block;">Contact</a>
+                        </li>
+                        <li class="opener" style="user-select: none; cursor: pointer; white-space: nowrap;">
+                            <a href="#" style="display: block;">Add</a>
+                            <ul class="dropotron" style="user-select: none; display: none; position: absolute;">
+                                <li style="white-space: nowrap;"><a href="/login" style="display: block;">Login</a></li>
+                                <li style="white-space: nowrap;"><a href="/logout" style="display: block;">Logout</a>
+                                </li>
+                                <li style="white-space: nowrap;"><a href="/sample" style="display: block;">Sample_ImageAnaysis</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li style="white-space: nowrap; text-align-all:center;"><a href="/logout" class="button">{{ email }}</a>
+                </li>
+
+            </ul>
+        </nav>
+    </header>
+    {% csrf_token %}
+    <!-- Main -->
+    <section id="main" class="container">
+        <header>
+            <h2>Image analysis results</h2>
+            <p>The analyzed image looks like a <span style="color:darkred">"{{ mush }}"</span></p>
+        </header>
+        <div class="box" style="text-align:justify">
+            <p2>
+                <img src="{{ imim }}" alt="">
+            </p2>
+            <p1>
+                <br>
+                <br>
+                {{ ti }}
+                <br>
+            </p1>
+            >
+
+            <p3>
+                {{ txt }}
+                <br>
+            </p3>
+
+            <p4>
+                {{ A }}
+            </p4>
+            <div id="mainhomebtn">
+                <div class="mbtn">
+                    <a href="/Imageanalysis" class="button alt">&nbsp;&nbsp;Another image
+                        analysis&nbsp;&nbsp;&nbsp</a>
+                    <a href="/content" class="button primary">Other Content</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<!-- Footer -->
+<footer id="footer">
+    <ul class="copyright">
+        <li>&copy; Joo&Lim_BIT_Project. All rights reserved.</li>
+    </ul>
+
+</footer>
+</section>
+</div>
+</body>
+<script src="/static/assets/js/jquery.min.js"></script>
+<script src="/static/assets/js/jquery.dropotron.min.js"></script>
+<script src="/static/assets/js/jquery.scrollex.min.js"></script>
+<script src="/static/assets/js/breakpoints.min.js"></script>
+<script src="/static/assets/js/util.js"></script>
+<script src="/static/assets/js/main.js"></script>
+<script src="/static/assets/js/longla.js"></script>
+<ul>
+    <li>위도:<span id="latitude"></span></li>
+    <li>경도:<span id="longitude"></span></li>
+    <li>{{ mush }}</li>
+</ul>
+</html>

@@ -1,0 +1,73 @@
+{% extends 'extends.html' %}
+{% block title %}
+    BIT_Board
+{% endblock %}
+{% block content %}
+    <section id="main" class="container">
+    <header>
+        <h2>Board List</h2>
+        <p>Write posts and share materials!</p>
+    </header>
+    <section class="box">
+        <div class="row mt-5">
+            <div class="col-12">
+                <table class="table table-light">
+                    <thead class="thead-light">
+                    <tr class="tr1">
+                        <th>No</th>
+                        <th>Title</th>
+                        <th>User</th>
+                        <th>Date_And_Time</th>
+                    </tr>
+                    </thead>
+                    <tbody class="text-dark">
+                    {% for board in boards %}
+                        <tr onclick="location.href='/board_detail/{{ board.id }}'">
+                            <th>{{ board.id }}</th>
+                            <td>{{ board.title }}</td>
+                            <td>{{ board.writer }}</td>
+                            <td>{{ board.registered_dttm }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            <nav>
+                    <ul class="pagination justify-content-center">
+                        {% if boards.has_previous %}
+                            <li class="page-item" style="float: left; width: 33%; text-align:center;">
+                                <a class="page-link" href="?p={{ boards.previous_page_number }}">Before</a>
+                            </li>
+                        {% else %}
+                            <li class="page-item disabled" style="float: left; width: 33%; text-align:center;">
+                                <a class="page-link" href="#">Before</a>
+                            </li>
+                        {% endif %}
+                        <li class="page-item active" style="float: left; width: 33%; text-align:center;">
+                            <a class="page-link" href="#">{{ boards.number }} / {{ boards.paginator.num_pages }}</a>
+                        </li>
+                        {% if boards.has_next %}
+                            <li class="page-item" style="float: left; width: 33%; text-align:center;">
+                                <a class="page-link" href="?p={{ boards.next_page_number }}">Next</a>
+                            </li>
+                        {% else %}
+                            <li class="page-item disabled" style="float: left; width: 33%; text-align:center;">
+                                <a class="page-link disabled" href="#">Next</a>
+                            </li>
+                        {% endif %}
+                </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <input type="Submit" value="Write" class="btn btn-outline-info" onclick="location.href='/board_write'">
+                &nbsp;
+                <input type="Submit" value="Back_Contents" class="btn btn-outline-info" onclick="location.href='/content'">
+            </div>
+        </div>
+    </section>
+    </section>
+    {% block extra_js %}
+    {% endblock %}
+
+{% endblock %}

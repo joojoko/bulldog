@@ -1,0 +1,118 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html lang=ko>
+<head>
+    <title>Image_Analysis</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href={% static "assets/css/sample.css" %}/>
+</head>
+<body class="is-preload">
+{% csrf_token %}
+<div id="page-wrapper">
+        <header id="header">
+        <h1><a href="/content">BIT_Project</a> Joo&Lim_Image_Analysis</h1>
+        <nav id="nav">
+            <ul>
+                <li style="white-space: nowrap;"><a href="/content">Home</a></li>
+                <li class="opener" style="user-select: none; cursor: pointer; white-space: nowrap;">
+                    <a href="#" class="icon solid fa-angle-down">Layouts ∨</a>
+                    <ul class="" style="user-select: none; display: none; position: absolute;">
+                        <li style="white-space: nowrap;"><a href="/board_list" style="display: block;">Board</a></li>
+                        <li style="white-space: nowrap;"><a href="/Realtimegraph" style="display: block;">Real-time
+                            graph</a></li>
+                        <li style="white-space: nowrap;"><a href="/Realtimemap" style="display: block;">Real-time
+                            Map</a>
+                        <li style="white-space: nowrap;"><a href="/imageanalysis" style="display: block;">Image
+                            Analysis</a>
+                        <li style="white-space: nowrap;"><a href="/contact" style="display: block;">Contact</a>
+                        </li>
+                        <li class="opener" style="user-select: none; cursor: pointer; white-space: nowrap;">
+                            <a href="#" style="display: block;">Add</a>
+                            <ul class="dropotron" style="user-select: none; display: none; position: absolute;">
+                                <li style="white-space: nowrap;"><a href="/login" style="display: block;">Login</a></li>
+                                <li style="white-space: nowrap;"><a href="/logout" style="display: block;">Logout</a>
+                                </li>
+                                <li style="white-space: nowrap;"><a href="/sample" style="display: block;">Sample_ImageAnaysis</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li style="white-space: nowrap; text-align-all:center;"><a href="/logout" class="button">{{ email }}</a>
+                </li>
+
+            </ul>
+        </nav>
+    </header>
+    <!-- Main -->
+    <section id="main" class="container">
+        <header>
+            <h2>Image Analysis</h2>
+            <p>Attach the prepared photo</p>
+        </header>
+
+        <!-- Lists -->
+        <div class="row">
+            <div class="col-6 col-12">
+
+                <section class="box special">
+
+                        <h3>Here's how to do image analysis.</h3>
+                            <p>1. Add a .jpg file to the image selection.
+                            <br>2. Confirm by pressing the image analysis button.</p>
+                        <form action="{% url 'img2' %}" method="Post" enctype="multipart/form-data">
+                            {% csrf_token %}
+
+
+
+                            <p>
+                                <img src="#" alt="" id="show-picture" width="210" height="250">
+                            </p>
+{#                            {% for message in messages %}#}
+{#                            {{ message.tag }}#}
+{#                            {{ message }}#}
+                            <script src="/static/assets/js/longla.js"></script>
+                            <div class="filebox">
+                                <label for="take-picture">Image Select</label>
+                                <input name="imgs" type="file" id="take-picture" accept="image/*">
+{#                                <input name="pro" type="text">#}
+                                <label for="latitude"></label>
+                                <input name="pro" type="hidden" id="latitude" class="latitude">
+                                <label for="longitude"></label>
+                                <input name="por" type="hidden" id="longitude" class="longitude">
+                                <input type="submit" value="Image Analysis">
+                            <script src="/static/js/base.js"></script>
+                            </div>
+{##}
+{#                                                                        {% endfor %}#}
+                        </form>
+
+                </section>
+
+            </div>
+        </div>
+        <!-- Footer -->
+        <footer id="footer">
+            <ul class="copyright">
+                <li>&copy; Joo&Lim_BIT_Project. All rights reserved.</li>
+            </ul>
+
+        </footer>
+    </section>
+</div>
+</body>
+<script src="/static/assets/js/jquery.min.js"></script>
+<script src="/static/assets/js/jquery.dropotron.min.js"></script>
+<script src="/static/assets/js/jquery.scrollex.min.js"></script>
+<script src="/static/assets/js/breakpoints.min.js"></script>
+<script src="/static/assets/js/util.js"></script>
+<script src="/static/assets/js/main.js"></script>
+<script src="/static/assets/js/longla.js"></script>
+
+<ul name="loco">
+    <li>위도:<span id="latitude"></span></li>
+    <li>경도:<span id="longitude"></span></li>
+</ul>
+</html>
+

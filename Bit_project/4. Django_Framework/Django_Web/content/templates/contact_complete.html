@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>BIT_Image_ContactUS</title>
+    <meta charset="utf-8/ko" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+</head>
+<body>
+    {% csrf_token %}
+    <section id="main" class="container">
+    <header>
+	    <h2>you are succesfully Contact US</h2>
+        <p>Your inquiry has been completed. Enjoy the content.</p>
+        <h6><input type="Submit" value="Go to Content" class="btn btn-outline-info" onclick="location.href='/content'"></h6>
+    </header>
+    </section>
+    </div>
+        <footer id="footer">
+					<ul class="copyright">
+                        <li>&copy; Joo&Lim_BIT_Project. All rights reserved.</li>
+                    </ul>
+        </footer>
+</body>
+</html>

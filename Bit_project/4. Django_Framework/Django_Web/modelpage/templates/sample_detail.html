@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html lang=ko>
+<head>
+    <title>Sample_Image_Analysis</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="{% static 'assets/css/sample.css' %}"/>
+</head>
+<body class="is-preload">
+<div id="page-wrapper">
+    <!-- Header -->
+    <header id="header">
+        <h1><a href="/index">BIT_Project</a> Joo&Lim_Image_analysis</h1>
+        <nav id="nav">
+            <ul>
+                <li><a href="/index">Home</a></li>
+                <li>
+                    <a href="/register" class="icon solid fa-angle-down">Login/Sign Up</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    {% csrf_token %}
+    <!-- Main -->
+    <section id="main" class="container">
+        <header>
+            <h2>Sample Image analysis results</h2>
+            <p>The analyzed image looks like a <span style="color:darkred">"{{ mush }}"</span></p>
+        </header>
+        <div class="box" style="text-align:justify">
+            <p2>
+                <img src="{{ imim }}" alt="">
+            </p2>
+            <p1>
+                <br>
+                <br>
+                {{ ti }}
+                <br>
+            </p1>>
+
+            <p3>
+                {{ txt }}
+                <br>
+            </p3>
+
+            <p4>
+                {{ A }}
+            </p4>
+            <div id="mainhomebtn">
+                <div class="mbtn">
+                    <a href="/sample" class="button alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Another image
+                        analysis&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                    <a href="/register" class="button primary">Enjoy through login or signup</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+<!-- Footer -->
+<footer id="footer">
+    <ul class="copyright">
+        <li>&copy; Joo&Lim_BIT_Project. All rights reserved.</li>
+    </ul>
+</footer>
+</div>
+</body>
+</html>

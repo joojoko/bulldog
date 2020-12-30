@@ -1,0 +1,44 @@
+{% extends 'extends.html' %}
+<!-- Main -->
+{% block title %}
+    BIT_Contact_us
+{% endblock %}
+
+{% block content %}
+<section id="main" class="container medium">
+    <header>
+        <h2>Contact Us</h2>
+        <p>Please fill out and send your inquiry</p>
+    </header>
+    <div class="box">
+        <form method="post" action="#">
+            {% csrf_token %}
+            {% for field in form %}
+                <div class="form-group">
+                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                    {% ifequal field.name 'contents' %}
+                        <textarea class="form-control" name="{{ field.name }}"
+                                  placeholder="{{ field.label }}"></textarea>
+                    {% else %}
+                        <input type="{{ field.field.widget.input_type }}" class="form-control"
+                               id="{{ field.id_for_label }}"
+                               placeholder="{{ field.label }}" name="{{ field.name }}"/>
+                    {% endifequal %}
+                </div>
+                {% if field.errors %}
+                    <span style="color: red">{{ field.errors }}</span>
+                {% endif %}
+            {% endfor %}
+            <div class="col-12">
+                <ul class="actions special">
+                    <li><input type="submit" value="Send Message"/></li>
+                </ul>
+            </div>
+            {% endblock %}
+        </form>
+    </div>
+</section>
+{% block extra_js %}
+{% endblock %}
+
+

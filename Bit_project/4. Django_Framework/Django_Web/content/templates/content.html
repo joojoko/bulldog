@@ -1,0 +1,86 @@
+{% extends 'extends.html' %}
+
+{% block title %}
+    BIT_Contents
+{% endblock %}
+
+{% block content %}
+    <section id="main" class="container">
+
+        <section class="box special">
+            <header class="major">
+                <h2>ConTents</h2>
+                <p>Click each image to move to the corresponding content.
+                </p>
+            </header>
+
+        </section>
+        <div class="row">
+            <div class="col-6 col-12-narrower" onclick="location.href='/Imageanalysis'">
+                <section class="box special">
+                    <span class="image featured"><img src="/static/images/analy.jpg" alt=""
+                                                      onclick="location.href='/Imageanalysis'"></span>
+                    <h3>Image-Analysis</h3>
+                    <p>Get more accurate analysis <br>results than sample analysis!</p>
+                    {#                    <ul class="actions special">#}
+                    {#                        <li><a href="/imageanalysis" class="button alt">Image Analysis</a></li>#}
+                    {#                    </ul>#}
+                </section>
+            </div>
+            <div class="col-6 col-12-narrower" onclick="location.href='/Realtimegraph'">
+                <section class="box special">
+                    <span class="image featured"><img src="/static/images/pic03.jpg" alt=""
+                                                      onclick="location.href='/Realtimegraph'"></span>
+                    <h3>Real-Time_Graph</h3>
+                    <p>Check the real-time graph that members requested for analysis.</p>
+                    {#                    <ul class="actions special">#}
+                    {#                        <li><a href="/Realtimegraph" class="button alt">Real-Time_Graph</a></li>#}
+                    {#                    </ul>#}
+                </section>
+            </div>
+            <div class="col-6 col-12-narrower" onclick="location.href='/board_list'">
+                <section class="box special">
+                    <span class="image featured"><img src="/static/images/4444.jpg" alt=""
+                                                      onclick="location.href='/board_list'"></span>
+                    <h3>Board</h3>
+                    <p>For more information, <br> please use the bulletin board.
+                        <br>
+                    </p>
+                    {#                    <ul class="actions special">#}
+                    {#                        <li><a href="/Board" class="button alt">Board</a></li>#}
+                    {#                    </ul>#}
+                </section>
+            </div>
+            <div class="col-6 col-12-narrower" onclick="location.href='/Realtimemap'">
+                <section class="box special">
+                    <span class="image featured"><img src="/static/images/pic03.jpg" alt=""
+                                                      onclick="location.href='/Realtimemap'"></span>
+                    <h3>Real-Time_Map</h3>
+                    <p>Check the distribution location of the mushrooms requested for analysis on the map!</p>
+                    {#                    <ul class="actions special">#}
+                    {#                        <li><a href="/Realtimemap" class="button alt">Real-Time_Map</a></li>#}
+                    {#                    </ul>#}
+                </section>
+            </div>
+        </div>
+    </section>
+    <section id="cta">
+
+        <h2>Ask a question</h2>
+        <p>Please write and send various inquiries!</p>
+        <ul class="actions special">
+            <li><a href="/contact" class="button alt">Contact us!</a></li>
+        </ul>
+    </section>
+    <footer id="footer">
+        <ul class="copyright">
+            <li>&copy; Joo&Lim_BIT_Project. All rights reserved.</li>
+        </ul>
+    </footer>
+
+    {% block extra_js %}
+    {% endblock %}
+
+
+{% endblock %}
+

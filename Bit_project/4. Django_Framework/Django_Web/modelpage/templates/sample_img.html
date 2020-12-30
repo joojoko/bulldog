@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html lang=ko>
+<head>
+    <title>Sample_Image_Analysis</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href={% static "assets/css/sample.css" %}/>
+</head>
+<body class="is-preload">
+{% csrf_token %}
+<div id="page-wrapper">
+    <!-- Header -->
+    <header id="header">
+        <h1><a href="/index">BIT_Project</a> Joo&Lim_Image_analysis</h1>
+        <nav id="nav">
+            <ul>
+                <li><a href="/index">Home</a></li>
+                <li>
+                    <a href="/register" class="icon solid fa-angle-down">Login/Sign Up</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <!-- Main -->
+    <section id="main" class="container">
+        <header>
+            <h2>Sample Image Analysis</h2>
+            <p>Attach the prepared photo</p>
+        </header>
+
+        <!-- Lists -->
+        <div class="row">
+            <div class="col-6 col-12">
+
+                <section class="box special">
+
+                        <h3>Here's how to do image analysis.</h3>
+                            <p>1. Add a .jpg file to the image selection.
+                            <br>2. Confirm by pressing the image analysis button.</p>
+                        <form action="{% url 'img' %}" method="Post" enctype="multipart/form-data">
+                            {% csrf_token %}
+
+                            <p>
+                                <img src="#" alt="" id="show-picture" width="210" height="250">
+                            </p>
+{#                            {% for message in messages %}#}
+{#                            {{ message.tag }}#}
+{#                            {{ message }}#}
+                            <div class="filebox">
+                                <label for="take-picture">Image Select</label>
+                                <input name="imgs" type="file" id="take-picture" accept="image/*">
+                                <input type="submit" value="Image Analysis">
+                            <script src="/static/js/base.js"></script>
+                            </div>
+{##}
+{#                                                                        {% endfor %}#}
+                        </form>
+
+                </section>
+
+            </div>
+        </div>
+        <!-- Footer -->
+        <footer id="footer">
+            <ul class="copyright">
+                <li>&copy; Joo&Lim_BIT_Project. All rights reserved.</li>
+            </ul>
+
+        </footer>
+    </section>
+</div>
+</body>
+</html>
+
